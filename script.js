@@ -189,7 +189,7 @@ setInterval(() => {
     // Check if the timer is running
     shuffleWithAnimation(); // Shuffle with animation
   }
-}, 5000); // 5000 milliseconds = 5 seconds
+}, 10000); // 10000 milliseconds = 10 seconds
 
 // Function to check the user's input word
 const checkWord = () => {
