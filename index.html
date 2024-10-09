@@ -14,22 +14,25 @@
     <!-- First Row -->
     <div class="col-12 mb-4 d-flex justify-content-center align-items-center">
       <div class="form-container-fluid container-card p-3 rounded-3">
-        <h2 class="text-center p-2">Word Scramble</h2>
+        <h2 class="text-center p-2">Jumbled Words Challenge</h2>
       </div>
     </div>
     <!-- Second Row -->
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="form-container-fluid container-card p-3 rounded-3">
         <div class="content text-center">
-          <p class="word"></p>
+          <p class="word p-3"></p>
           <div class="details">
             <p class="hint">Hint: <span></span></p>
             <p class="time">Time Left: <span><b>30</b>s</span></p>
           </div>
-          <input type="text" class="form-control my-3" spellcheck="false" placeholder="Enter a valid word">
+          <div class="time-bar rounded-1">
+            <div class="time-progress-bar rounded-1"></div>
+          </div>
+          <input type="text" class="form-control my-3" spellcheck="false" placeholder="Enter the word">
           <div class="buttons mt-3">
             <button class="refresh-word"><i class="bi bi-arrow-clockwise" style="font-size: 1.5rem;"></i></button>
-            <button class="check-word">Check Word</button>
+            <button class="check-word">Check your answer</button>
           </div>
         </div>
       </div>
@@ -41,11 +44,13 @@
   <span class="popup-message-text"></span>
 </div>
 
-<div class="score-board text-center">
+<div class="score-board text-center p-4">
+
+  <h4 class="p-2">Word Scramble</h4>
   <span class="points">Points: <b>0</b></span>
   <span class="missed">Missed Words: <b>0</b></span>
   <div class="refresh-count">Refresh Clicks: <b>0</b></div>
-  <button class="reset-scoreboard btn btn-danger mt-3">Reset Scoreboard</button>
+  <button class="reset-scoreboard mt-3 rounded-2">Reset</button>
 </div>
 
 <script src="script.js"></script>
