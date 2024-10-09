@@ -154,11 +154,26 @@ const shuffleWithAnimation = () => {
 // Function to initialize the timer
 const initTimer = (maxTime) => {
   clearInterval(timer);
+
+  const progressBar = document.querySelector(".time-progress-bar");
+  const totalTime = maxTime; // Store the total time for percentage calculation
+
+  progressBar.style.width = "100%"; // Reset the progress bar to full width at the start
+
   timer = setInterval(() => {
     if (maxTime > 0) {
       maxTime--;
-      return (timeText.innerText = maxTime);
+
+      // Update the time text
+      timeText.innerText = maxTime;
+
+      // Calculate the percentage of time left and update the progress bar width
+      const timePercentage = (maxTime / totalTime) * 100;
+      progressBar.style.width = `${timePercentage}%`;
+
+      return;
     }
+
     // If time runs out, increase missed words and update the scoreboard
     missedWords++;
     missedDisplay.innerText = missedWords; // Update missed words in scoreboard
@@ -171,7 +186,7 @@ const initTimer = (maxTime) => {
 
 // Function to initialize the game
 const initGame = () => {
-  initTimer(30);
+  initTimer(30); // Initialize the timer with 30 seconds
   let randomObj = words[Math.floor(Math.random() * words.length)];
   correctWord = randomObj.word.toLowerCase();
   displayWordWithTypingEffect(shuffleWord(correctWord)); // Display the shuffled word without typing effect
@@ -183,7 +198,7 @@ const initGame = () => {
 // Initialize the game
 initGame();
 
-// Set interval to shuffle the word every 5 seconds
+// Set interval to shuffle the word every 10 seconds
 setInterval(() => {
   if (timer) {
     // Check if the timer is running
