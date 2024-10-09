@@ -47,7 +47,7 @@ body {
   margin-right: -18px;
   word-break: break-all;
   text-transform: uppercase;
-  color: #fecfec;
+  color: #c00277;
   animation: typing 4s steps(30, end), blink-caret 0.1s step-end infinite;
 }
 
@@ -136,6 +136,24 @@ body {
   background: #570136;
 }
 
+.time-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #272727;
+  margin-top: 10px;
+  box-shadow: inset -2px -2px 2px 0px rgb(66, 70, 74),
+    inset 1px 1px 1px -1px rgb(0, 0, 0);
+}
+
+.time-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at bottom right, #79014b 20%, #570136 80%);
+  box-shadow: inset -1px -1px 1px 0px rgba(66, 70, 74, 0.226),
+    inset 0px 0px 0px 0px rgb(0, 0, 0);
+  transition: width 1s linear;
+}
+
 /* Style for the overlay message */
 .overlay {
   position: fixed;
@@ -147,27 +165,6 @@ body {
   display: none; /* Hidden by default */
   justify-content: center;
   align-items: center;
-}
-
-.message-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-}
-
-.message {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.overlay.correct .message-box {
-  background-color: #4caf50; /* Green background for correct answers */
-}
-
-.overlay.wrong .message-box {
-  background-color: #f44336; /* Red background for wrong answers */
 }
 
 /* Styles for the popup message */
@@ -209,44 +206,25 @@ body {
   color: red;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 576px) {
-  .container-card {
-    margin: 10px; /* Add margin for smaller screens */
-  }
-
-  .container-card h2 {
-    font-size: 24px; /* Smaller font size for the title */
-  }
-
-  .content .word {
-    font-size: 28px; /* Adjust word font size for smaller screens */
-    letter-spacing: 12px; /* Reduce letter spacing */
-  }
-
-  .details p {
-    font-size: 16px; /* Adjust font size of details for smaller screens */
-  }
-
-  .content input {
-    height: 40px; /* Adjust input height for smaller screens */
-    font-size: 14px; /* Smaller font size for input */
-  }
-
-  .buttons button {
-    font-size: 14px; /* Adjust button font size for smaller screens */
-  }
-}
-
 .score-board {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #f0f0f0;
+  background-color: rgba(0, 0, 0, 0.418);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(78, 78, 78, 0.26);
+  color: white;
   padding: 10px;
   border-radius: 5px;
   font-family: Arial, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-board h4 {
+  font-size: 24px; /* Adjust font size for better scaling */
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  color: #fff;
+  text-align: center; /* Center align heading */
 }
 
 .score-board span {
@@ -256,4 +234,100 @@ body {
 
 .score-board b {
   font-weight: bold;
+}
+
+.reset-scoreboard {
+  width: 160px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  background: #79014b;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.reset-scoreboard:hover {
+  /* Remove the space before :hover */
+  background: #570136; /* Only need to change background color on hover */
+}
+
+.reset-scoreboard:active {
+  transform: scale(0.97);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container-card {
+    padding: 20px;
+  }
+
+  .container-card h2 {
+    font-size: 22px;
+  }
+
+  .content .word {
+    font-size: 28px;
+    letter-spacing: 10px;
+  }
+
+  .details p {
+    font-size: 16px;
+  }
+
+  .content input {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .buttons .check-word {
+    width: calc(100% - 10px);
+  }
+
+  .score-board {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 414px) {
+  .container-card {
+    padding: 20px;
+  }
+
+  .container-card h2 {
+    font-size: 22px;
+  }
+
+  .content .word {
+    font-size: 28px;
+    letter-spacing: 10px;
+  }
+
+  .details p {
+    font-size: 16px;
+  }
+
+  .content input {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .buttons .check-word {
+    width: calc(100% - 5px);
+  }
+
+  .score-board {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
